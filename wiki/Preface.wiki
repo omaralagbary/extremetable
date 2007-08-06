@@ -1,5 +1,3 @@
-== Preface ==
-
 The eXtremeComponents are a series of open source JSP custom tags that render advanced displays. The current component is called the eXtremeTable and is used to display data in a table format.
 
 Heading into the final release everything has exceeded my expectations. The interfaces are clear and the code is very clean. Just about every bit of functionality can be customized if needed, but the default implementations are both sensible and powerful. In addition the eXtremeTable has become an API and I now longer even think of it as a tag library...tags are just one way to generate a table.
