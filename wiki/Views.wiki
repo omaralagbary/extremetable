@@ -1,5 +1,3 @@
-== Views ==
-
 The views in eXtremeTable are plugable. This means that the html can be easily modified, or a new kind of export can be implemented. All you need to do is implement the View interface and set the view attribute on the !TableTag or !ExportTag. First lets look at the View interface:
 
 {{{
@@ -44,5 +42,4 @@ In contrast to a View on the table, all the markup for an export is generated in
    ...
  </ec:table>
 }}}
-
 
