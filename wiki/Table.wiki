@@ -247,13 +247,13 @@ The title attribute will display a title above the table. The location of the ti
 
 You will notice that there are still a few attributes that I have not talked about, because they are directly tied to other chapters. The autoIncludeParameters attribute is discussed in the [[Parameter]] chapter. The retrieveRowsCallback, sortRowsCallback and filterRowsCallback is discussed in the [[Callbacks]] chapter.
 
-=== Extending TableTag ===
+=== Extending !TableTag ===
 
 The way most tags are developed is you have a fixed set of attributes on the tag. Those attributes are then used so that a fixed set of functionality can be invoked. The eXtremeTable, however, has a much more flexible approach. The eXtremeTable gives you a way to add your own tag attributes so that you can do more customized work. Furthermore, there are clear hooks in the eXtremeTable that allow you to retrieve those custom tag attributes and then do something with them.
 
-The hook to add attributes on the TableTag is via the addTableAttributes() method.
+The hook to add attributes on the !TableTag is via the addTableAttributes() method.
 
- public void addTableAttributes(TableModel model, Table table);
+ public void addTableAttributes(!TableModel model, Table table);
 
 The TableTag calls this method in case the method is overridden. That means all you need to do is extend the TableTag, override the addTableAttributes() method, and then add your attributes to the Table object. 
 
@@ -298,4 +298,5 @@ Another thing to understand is you can make your own tag, with your own TLD file
    </ec:row>
  </mycompany:customTable>
 }}}
+
 
