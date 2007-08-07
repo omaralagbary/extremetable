@@ -24,7 +24,7 @@
 
 === Installation ===
 
-Download the distribution from [http://sourceforge.net/projects/extremecomp/ sourceforge].
+Download the distribution.
 
 In the zip file you will find everything you need to get started:
  * extremecomponents.jar
@@ -114,6 +114,5 @@ To set up the filter put a entry in the /WEB-INF/web.xml file like this:
 To test the installation included is a quick and dirty test.jsp page with the distribution files. Simply take the test.jsp page and stick it at the top level of your web application. By default the images are expected to be in a sub-directory called /images/table/. For this test also make that directory and put the images in there. Once that is done just point your browser at the test.jsp page.
 
 Note: I do not like to promote using scriplets in your JSP but for the test.jsp it is the only way to demonstrate a quick test without having to go through a regular framework.
-
 
 
