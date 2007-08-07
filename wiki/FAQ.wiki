@@ -2,11 +2,11 @@
 
 ===== Custom Form =====
  * Question: How can I customize the eXtremeTable to include other form components, or embed in a different form.?
- * Answer: Just remember that the eXtremeTable is a form component and at the heart is quite straightforward and simple in that respect. Here is a compilation of [FormLinks] to sort out the features available.
+ * Answer: Just remember that the eXtremeTable is a form component and at the heart is quite straightforward and simple in that respect.
 
 ===== Create custom View =====
  * Question: How can I modify the View?
- * Answer: You need to create a custom View. Here is a compilation of [ViewLinks].
+ * Answer: You need to create a custom View.
 
 ===== Create custom filter =====
  * Question: How can I create a custom filter?
@@ -52,6 +52,5 @@
    ...
  >
 }}}
-
 
 
