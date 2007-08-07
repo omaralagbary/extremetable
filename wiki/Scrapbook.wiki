@@ -8,7 +8,5 @@ A place to share code ideas.
  * [GroupCell]
  * [RowFoldingCell Row Folding Cell]
  * [ExportCurrentPage Export Current Page]
- ** This is a way to get the exports to only export the current page displayed.
  * [XSS XSS fix] for the !FilterCell
-
 
