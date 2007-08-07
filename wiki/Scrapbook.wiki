@@ -1,0 +1,14 @@
+A place to share code ideas.
+
+ * [PageDroplist]
+ * [WebworkMessagesAdapter Webwork Messages Adapter]
+ * [StrutsMessagesAdapter Struts Messages Adapter]
+ * [UsingJDK1_5EnumsAndFilterCell Using JDK1.5 Enums and Filter Cell]
+ * [DateFilter Date Filter]
+ * [GroupCell]
+ * [RowFoldingCell Row Folding Cell]
+ * [ExportCurrentPage Export Current Page]
+ ** This is a way to get the exports to only export the current page displayed.
+ * [XSS XSS fix] for the !FilterCell
+
+
