@@ -1,5 +1,3 @@
-== Tutorials ==
-
  * [LimitTutorial Limit Feature]
  * [InterceptorTutorial Interceptor Feature]
  * [FormTutorial Form Example]
