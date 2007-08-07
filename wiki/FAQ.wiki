@@ -1,7 +1,7 @@
 == Frequently Asked Questions ==
 
 ===== Custom Form =====
- * Question: How can I customize the eXtremeTable to include other form components, or embed in a different form.?
+ * Question: How can I customize the eXtremeTable to include other form components, or embed in a different form?
  * Answer: Just remember that the eXtremeTable is a form component and at the heart is quite straightforward and simple in that respect.
 
 ===== Create custom View =====
@@ -52,5 +52,4 @@
    ...
  >
 }}}
-
 
