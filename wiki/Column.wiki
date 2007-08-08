@@ -44,7 +44,7 @@ In the following example we are pulling the firstName and lastName.
  </ec:table>
 }}}
 
-During the discussion of the TableTag you learned that a column can pull its value either dynamically or explicitly. The column defined by the property firstName is pulling the value dynamically. The column looks at the current bean and finds a method called getFirstName() and pulls the value. The column defined by the property lastName is being pulled explicilty from the current bean, and requires you to pull the value yourself. Lets look at an example:
+During the discussion of the !TableTag you learned that a column can pull its value either dynamically or explicitly. The column defined by the property firstName is pulling the value dynamically. The column looks at the current bean and finds a method called getFirstName() and pulls the value. The column defined by the property lastName is being pulled explicilty from the current bean, and requires you to pull the value yourself. Lets look at an example:
 
 {{{
  <ec:table 
@@ -100,7 +100,7 @@ I am no longer going to be specifying the pageScope in any of the examples, as i
 
 === Cell ===
 
-Every column is backed by an Object which implements the Cell interface. You can think of a Cell as an Object that returns the formatted value for displaying in html or exporting. The cells that are included with the distribution are the DisplayCell, DateCell, NumberCell, and the RowCountCell. The DisplayCell is the default cell and just displays the column value. The DateCell uses the parse (optional) and format attributes along with the property value. The NumberCell uses the format attribute along with the property value. The RowCountCell displays the current row.
+Every column is backed by an Object which implements the Cell interface. You can think of a Cell as an Object that returns the formatted value for displaying in html or exporting. The cells that are included with the distribution are the !DisplayCell, !DateCell, !NumberCell, and the !RowCountCell. The !DisplayCell is the default cell and just displays the column value. The !DateCell uses the parse (optional) and format attributes along with the property value. The !NumberCell uses the format attribute along with the property value. The !RowCountCell displays the current row.
 
 Note: The Cell interface has changed. The reason for the change was to eliminate confusion and improve the flexibility. It was also not very obvious on how to deal with html versus export display values. Previously the Column value had to be set for html, but for an export the Column propertyValue had to be set. In addition because the Column value and propertyValue had to be overwritten they were inaccessible in the view.
 
@@ -124,9 +124,9 @@ public interface Cell {
 
 There is now a clear distinction between getting the export and html display. More importantly, a String needs to be returned. The column value and property value should never be set.
 
-The DisplayCell is the simplest Cell and extends the AbstractCell. The abstract method defined for the AbstractCell is getCellValue and is used to return the value for the cell. This is an easy way to return the cell value without having to worry about the markup. Although the AbstractCell can be useful in some cases, many times just implementing the Cell interface directly is probably what you want to do.
+The !DisplayCell is the simplest Cell and extends the !AbstractCell. The abstract method defined for the !AbstractCell is getCellValue and is used to return the value for the cell. This is an easy way to return the cell value without having to worry about the markup. Although the !AbstractCell can be useful in some cases, many times just implementing the Cell interface directly is probably what you want to do.
 
-The DisplayCell:
+The !DisplayCell:
 
 {{{
 public class DisplayCell extends AbstractCell {
@@ -140,7 +140,7 @@ public class DisplayCell extends AbstractCell {
 }
 }}}
 
-The AbstractCell:
+The !AbstractCell:
 
 {{{
 public abstract class AbstractCell implements Cell {
@@ -163,9 +163,11 @@ public abstract class AbstractCell implements Cell {
 }
 }}}
 
-Now you can see just how simple a Cell is. To make your own custom Cell all you have to do is implement the Cell interface, or extend AbstractCell, and then give the fully qualified path to the Cell. For example, if you have a custom cell called MyCell then you would do something like this:
+Now you can see just how simple a Cell is. To make your own custom Cell all you have to do is implement the Cell interface, or extend !AbstractCell, and then give the fully qualified path to the Cell. For example, if you have a custom cell called !MyCell then you would do something like this:
 
+{{{
  <ec:column property="firstName" cell="com.mycompany.cell.MyCell"/>
+}}}
 
 If you change the data of a column then filtering and sorting probably will not make much sense. Keep in mind I only mean if you actually change the data, not just wrap some styling around it or include it as an <a href>. For instance if your custom cell shows a tree view of data, or is an image, then nothing logically makes sense to try and filter or sort on.
 
@@ -186,7 +188,7 @@ If you would like the filter to show up as a droplist then just do this:
  </ec:table>
 }}}
 
-The filterCell also allows you to define custom filters. All you have to do is implement the Cell interface, or extend AbstractCell, and then give the fully qualified path to the Cell. For example, if you have a custom cell called MyFilterCell then you would do something like this:
+The filterCell also allows you to define custom filters. All you have to do is implement the Cell interface, or extend !AbstractCell, and then give the fully qualified path to the Cell. For example, if you have a custom cell called !MyFilterCell then you would do something like this:
 
 {{{
  <ec:column property="firstName" filterCell="com.mycompany.cell.MyFilterCell"/>
@@ -198,7 +200,7 @@ See the Cell section for more information on how to create your own custom cells
 
 The headerCell attribute controls how the headers render. It is similar to the cell attribute and also implements the Cell interface. The default header cell will show up as text and contains the logic to do the sorting.
 
-The headerCell also allows you to define a custom cell. All you have to do is implement the Cell interface, or extend AbstractCell, and then give the fully qualified path to the Cell. For example, if you have a custom cell called MyHeaderCell then you would do something like this:
+The headerCell also allows you to define a custom cell. All you have to do is implement the Cell interface, or extend !AbstractCell, and then give the fully qualified path to the Cell. For example, if you have a custom cell called !MyHeaderCell then you would do something like this:
 
 {{{
  <ec:column property="firstName" headerCell="com.mycompany.cell.MyHeaderCell"/>
@@ -212,7 +214,7 @@ The alias attribute is used to make the column unique if the property attribute 
 
 === Styling ===
 
-There are a few styling attributes associated with the ColumnTag.
+There are a few styling attributes associated with the !ColumnTag.
 
 {{{
  <ec:column 
@@ -246,11 +248,11 @@ With currency you only need to give the format attribute.
  <ec:column property="payroll" cell="currency" format="###,###,##0.00"/>
 }}}
 
-Most of the time the dates and currency are parsed and formatted the same for all your eXtremeTables. As a convenience you could define the parse and format once in your extremecomponents.properties file and then exclude those attributes from your ColumnTag. See the Preferences chapter for more detail.
+Most of the time the dates and currency are parsed and formatted the same for all your eXtremeTables. As a convenience you could define the parse and format once in your extremecomponents.properties file and then exclude those attributes from your !ColumnTag. See the Preferences chapter for more detail.
 
 === Filtering and Sorting ===
 
-You probably remember seeing the attributes filterable and sortable on the TableTag. These same attributes are also on the ColumnTag. The column filterable and sortable attributes override the table filterable and sortable attribute settings. This is very convenient when you need to sort or filter the whole table, except for one or two columns.
+You probably remember seeing the attributes filterable and sortable on the !TableTag. These same attributes are also on the !ColumnTag. The column filterable and sortable attributes override the table filterable and sortable attribute settings. This is very convenient when you need to sort or filter the whole table, except for one or two columns.
 
 {{{
  <ec:table 
@@ -265,7 +267,7 @@ You probably remember seeing the attributes filterable and sortable on the Table
 }}}
 
 === Interceptor ===
-The Interceptor feature is used to change the attribute values at runtime. This makes it possible to change the behavior of the column based on the data. You can read more about it at the [[Interceptor_Tutorial|interceptor tutorial]].
+The Interceptor feature is used to change the attribute values at runtime. This makes it possible to change the behavior of the column based on the data. You can read more about it at the [InterceptorTutorial interceptor tutorial].
 
 === Calc ===
 
@@ -285,7 +287,7 @@ The calc attribute corresponds to the Calc interface which has a single method:
 
 You get passed the model and column and return the value as a Number. The default implementations are total and average.
 
-To use your own custom Calc use the ColumnTag calc attribute and give the fully qualified path to the class that implements the Calc interface.
+To use your own custom Calc use the !ColumnTag calc attribute and give the fully qualified path to the class that implements the Calc interface.
 
 A Calc is a singleton and is not thread safe so do not define any class variables.
 
@@ -339,7 +341,7 @@ The title attribute is used to give the header a descriptive name. If you do not
 
 === Filter Options ===
 
-The filterOptions attribute accepts a Collection of filter options where each bean in the Collection implements the FilterOption interface. It is used in conjunction with the filterCell="droplist". Very useful when using the Limit to use a custom droplist.
+The filterOptions attribute accepts a Collection of filter options where each bean in the Collection implements the !FilterOption interface. It is used in conjunction with the filterCell="droplist". Very useful when using the Limit to use a custom droplist.
 
 This is also enhanced to use the same logic as the table items. This means you can use EL(if using tags) or just specify the String name and it will be searched for automatically. In addition the filterOptions Collection can be nested inside another object. Just specify the dot (.) notation to give the path.
 
@@ -375,7 +377,7 @@ Use:
 
 Of course this is pretty quick and dirty, but you should see the point. In many cases it makes sense to compose your objects instead of just having a flat structure.
 
-Note: in the default sorting I check to see if the property is a nested property, and, if so, I use the NullSafeBeanComparator. However, this feature does require the BeanUtils 1.7.
+Note: in the default sorting I check to see if the property is a nested property, and, if so, I use the !NullSafeBeanComparator. However, this feature does require the !BeanUtils 1.7.
 
 === Extended Attributes ===
 
@@ -391,9 +393,9 @@ public void modifyColumnAttributes(TableModel model, Column column) {
 }
 }}}
 
-The ColumnTag calls both of these methods in case they are overridden. The addColumnAttributes is called when the attributes are first added to the Column. This method is only called once. However, the modifyColumnAttributes is called each time the column is called for each iteration over the rows. 
+The !ColumnTag calls both of these methods in case they are overridden. The addColumnAttributes is called when the attributes are first added to the Column. This method is only called once. However, the modifyColumnAttributes is called each time the column is called for each iteration over the rows. 
 
-For example, to add column attributes to the Column that means all you need to do is extend the ColumnTag and then add your attributes to the Column object. Here is what a CustomTag would look like:
+For example, to add column attributes to the Column that means all you need to do is extend the !ColumnTag and then add your attributes to the Column object. Here is what a !CustomTag would look like:
 
 {{{
 public class MyCustomTag extends ColumnTag {
@@ -440,5 +442,12 @@ Another thing to understand is you can make your own tag, with your own TLD file
    </ec:row>
  </ec:table>
 }}}
+
+
+
+
+
+
+
 
 
