@@ -183,7 +183,7 @@ This example show that you can just specify the Collection by name and it will b
 
 !BaseModel has been renamed to !TableModel. The change was a result of not having a base package anymore, which means there was no longer a !BaseModel.
 
-=== Properties and ResourceBundle ===
+=== Properties and !ResourceBundle ===
 
 The extremecomponentsPropertiesLocation is replaced by the extremecomponentsPreferencesLocation attribute in the web.xml file as the properties is governed by the Preferences interface now. In a later release I would like to offer an alternate xml file configuration option.
 
@@ -314,5 +314,4 @@ The FormTag and !InputTag are deprecated. They should not be used with the new h
 === !RetrieveRowsCallbacks, !FilterRowsCallback, !SortRowsCallback ===
 
 Callbacks are singletons now and are not thread safe so do not define any class variables.
-
 
