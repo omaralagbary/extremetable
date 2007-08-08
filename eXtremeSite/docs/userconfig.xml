@@ -1,0 +1,15 @@
+<configuration>
+<fonts>
+    <font metrics-file="/home/jeff/workspace/userconfig/arialuni.xml"
+   			embed-file="/home/jeff/workspace/userconfig/Arialuni.TTF" kerning="yes">
+    	<font-triplet name="arialuni" style="normal" weight="normal"/>
+    	<font-triplet name="arialuni" style="normal" weight="bold"/>
+    	<font-triplet name="arialuni" style="italic" weight="normal"/>
+    	<font-triplet name="arialuni" style="italic" weight="bold"/>
+  </font>
+</fonts>
+</configuration>
+
+
+exportPdf.userconfigLocation=/org/extremesite/resource/userconfig.xml
+exportPdf.font=arialuni
