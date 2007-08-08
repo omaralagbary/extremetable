@@ -2,7 +2,7 @@
 
 The Row is used to define the table rows.
 
-You define the RowTag to wrap around the columns like this:
+You define the !RowTag to wrap around the columns like this:
 
 {{{
  <ec:table 
