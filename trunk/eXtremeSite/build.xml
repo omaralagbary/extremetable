@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="eXtremeComponents" basedir=".">
+	
+	<property name="projectName" value="eXtremeSite"/>
+	<property name="main.dir" value="./"/>
+	<property name="src.dir" value="${main.dir}/JavaSource"/>
+	<property name="build.dir" value="${main.dir}/build"/>
+	<property name="lib.dir" value="${main.dir}/WebContent/WEB-INF/lib"/>
+	<property name="classes.dir" value="${main.dir}/WebContent/WEB-INF/classes"/>
+	<property name="dist.dir" value="${main.dir}/dist"/>
+	<property name="docs.dir" value="${main.dir}/WebContent/public/docs/"/>
+	<property name="javadocs.dir" value="${main.dir}/docs/api"/>
+
+	<path id="classes">
+		<fileset dir="${lib.dir}">
+			<include name="**/*.jar"/>
+		</fileset>
+		<pathElement location="${servlet.jar}"/>
+    </path>
+
+	<target name="copydocs">
+
+		<delete dir="${docs.dir}"/>
+		
+		<mkdir dir="${docs.dir}"/>		
+		<mkdir dir="${docs.dir}/api"/>		
+		
+		<copy todir="${docs.dir}/api">
+			<fileset dir="../eXtremeComponents/docs/api">
+				<include name="**/*"/>
+			</fileset>
+		</copy>
+		
+	</target>
+	
+</project>
+
