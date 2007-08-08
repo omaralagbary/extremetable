@@ -57,7 +57,7 @@ To do more dynamic processing you can use javascript on a row by row basis. The 
 }}}
 
 === Interceptor ===
-The Interceptor feature is used to change the attribute values at runtime. This makes it possible to change the behavior of the row based on the data. You can read more about it at the [Interceptor_Tutorial interceptor tutorial].
+The Interceptor feature is used to change the attribute values at runtime. This makes it possible to change the behavior of the row based on the data. You can read more about it at the [InterceptorTutorial interceptor tutorial].
 
 === Extended Attributes ===
 
@@ -69,4 +69,3 @@ The hook to include (or modify) the attributes include one or both of the follow
   public void addRowAttributes(TableModel model, Row row) {}
   public void modifyRowAttributes(TableModel model, Row row) {}
 }}}
-
