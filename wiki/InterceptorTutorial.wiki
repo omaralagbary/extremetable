@@ -40,7 +40,7 @@ The first thing we need to do is implement the !RowInterceptor interface. What y
 In the Preferences you need to declare the alias for the row interceptor.
 
 {{{
- row.interceptor.marker=org.extremesite.interceptor.!MarkerInterceptor
+ row.interceptor.marker=org.extremesite.interceptor.MarkerInterceptor
 }}}
 
 The !RowTag will then use the interceptor attribute to use the !MarkerInterceptor.
@@ -50,7 +50,6 @@ The !RowTag will then use the interceptor attribute to use the !MarkerIntercepto
 }}}
 
 _See the Preferences tutorial if the syntax for the Preferences and !RowTag (above) does not make sense._
-
 
 
 
