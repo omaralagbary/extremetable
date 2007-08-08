@@ -309,9 +309,8 @@ Changed the search image name from search to filter. The change is made to refle
 
 === !FormTag / !InputTag Deprecated ===
 
-The FormTag and !InputTag are deprecated. They should not be used with the new html view.
+The !FormTag and !InputTag are deprecated. They should not be used with the new html view.
 
 === !RetrieveRowsCallbacks, !FilterRowsCallback, !SortRowsCallback ===
 
 Callbacks are singletons now and are not thread safe so do not define any class variables.
-
