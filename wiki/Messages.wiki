@@ -62,8 +62,6 @@ column.calc.total=Total
 column.calc.average=Average
 }}}
 
-Right now the only translated languages are English, Japanese and Chinese. There is some support for German, Spanish and Dutch. If you are doing another locale or would like to make the languages complete then I would really appreciate getting the translation from you. Just drop me an email at extremecomponents@gmail.com.
-
 Note: There is  something with the classloader that makes loading resource bundles in a different jar file, but the same package as the eXtremeTable Messages (org\extremecomponents\table\resource\extremetableResourceBundle_language_country.properties), not work correctly. Just something to keep in mind if you try putting your messages in the exact same package with the same resource bundle name as the defaults. I would recommend just referencing your own project structure for custom messages.
 
 === Table ===
@@ -124,7 +122,6 @@ Then the eXtremeTable will look in the resource bundle for matching key like thi
 {{{
  table.column.nickName=Spitzname
 }}}
-
 
 
 
