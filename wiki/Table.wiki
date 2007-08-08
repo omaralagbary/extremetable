@@ -115,11 +115,11 @@ If you are still unsure then experiment by setting the filterable and sortable a
 What may be more interesting to point out in this example is the use of the action attribute. The action is used to tell the eXtremeTable how to navigate back to the current page while filtering or sorting. In this example I need to run through the Spring controller to get my Collection of Beans, which is where the presidents.run syntax comes from. Also, by default, you do not need to worry about passing parameters. The eXtremeTable will keep track of all your parameters and will pass them along as you filter, sort, and page through the Collection of Beans. See the Parameter chapter for more information on that.
 
 === Automatically Including Parameters ===
-The autoIncludeParameters attribute is used to specify whether or not to automatically include parameters passed to it. The default is true and makes working with the table very transparent. However, you need to be aware of how this works so that you can evaluate if that is really the effect you want. In my experience the only time I need to set the autoIncludeParameters to false is when embedding the table in a custom form. As a rule you should always set this to false when the table is embedded in a form, otherwise just be aware of how this works. You can read more about it in the [[Parameter]] chapter.
+The autoIncludeParameters attribute is used to specify whether or not to automatically include parameters passed to it. The default is true and makes working with the table very transparent. However, you need to be aware of how this works so that you can evaluate if that is really the effect you want. In my experience the only time I need to set the autoIncludeParameters to false is when embedding the table in a custom form. As a rule you should always set this to false when the table is embedded in a form, otherwise just be aware of how this works. You can read more about it in the [Parameter] chapter.
 
 === Adjusting Rows Displayed ===
 
-The eXtremeTable will display 15 rows by default. To change this set the rowsDisplayed attribute to the number of rows you want displayed. The rowsDisplayed is another good candidate to default in the [[Preferences]] (extremecomponents.properties) file.
+The eXtremeTable will display 15 rows by default. To change this set the rowsDisplayed attribute to the number of rows you want displayed. The rowsDisplayed is another good candidate to default in the [Preferences] (extremecomponents.properties) file.
 
 {{{
 table.rowsDisplayed=12
@@ -172,10 +172,10 @@ If you would like the state to work differently then just implement the State in
 
 As a rule of thumb the tableId should be specified when using the state attribute. This is because the state is stored in session by the tableId. If the tableId is not uniquely specified then one eXtremeTable will override another one with the same name. If the tableId is not specifed the default value is ec.
 
-Note:When using state along with limit, you should use TableLimitFactory(Context context, String tableId, String state, String stateAttr) instead of TableLimitFactory(Context context) or TableLimitFactory(Context context, String tableId).
+Note:When using state along with limit, you should use !TableLimitFactory(Context context, String tableId, String state, String stateAttr) instead of !TableLimitFactory(Context context) or !TableLimitFactory(Context context, String tableId).
 
 === Locale ===
-To specify a locale on the table use the Table locale attribute. You can read more about it in the [[Messages]] chapter.
+To specify a locale on the table use the Table locale attribute. You can read more about it in the [Messages] chapter.
 
 === Theme ===
 The theme attribute is used to change the look and feel of the table. However, it is really quite simple. The theme changes the class attribute of the HTML div that surrounds the table. The default theme is called eXtremeTable and looks like this in the source code in the browser:
@@ -203,7 +203,7 @@ The real trick then is to change your CSS stylesheet to include the theme:
 }}}
 
 === Callbacks ===
-Callbacks are used to retrieve, filter and sort the rows. You can specify a custom implementation of each if needed. You can read more about it in the [[Callbacks|Callbacks chapter]].
+Callbacks are used to retrieve, filter and sort the rows. You can specify a custom implementation of each if needed. You can read more about it in the [Callbacks Callbacks chapter].
 
 === Custom Form Handling ===
 The eXtremeTable is a form component. When you do a view source you can see that there is a form element that wraps the table and there are hidden input fields that the eXtremeTable uses to control how the table is used. By using the Table form attribute you can reference a different form instead of creating one. You can see an example by reading the [[Form_Tutorial|custom form]] tutorial.
@@ -245,7 +245,7 @@ For consistency I kept all the display features that can be toggled on or off as
 
 The title attribute will display a title above the table. The location of the title depends on which view is being used. The default view has the title appear above the table and to the left of the toolbar. See the View chapter for more information.
 
-You will notice that there are still a few attributes that I have not talked about, because they are directly tied to other chapters. The autoIncludeParameters attribute is discussed in the [[Parameter]] chapter. The retrieveRowsCallback, sortRowsCallback and filterRowsCallback is discussed in the [[Callbacks]] chapter.
+You will notice that there are still a few attributes that I have not talked about, because they are directly tied to other chapters. The autoIncludeParameters attribute is discussed in the [[Parameter]] chapter. The retrieveRowsCallback, sortRowsCallback and filterRowsCallback is discussed in the [Callbacks] chapter.
 
 === Extending !TableTag ===
 
@@ -257,7 +257,7 @@ The hook to add attributes on the !TableTag is via the addTableAttributes() meth
 
 The TableTag calls this method in case the method is overridden. That means all you need to do is extend the TableTag, override the addTableAttributes() method, and then add your attributes to the Table object. 
 
-Here is what a custom TreeTag looks like:
+Here is what a custom !TreeTag looks like:
 
 {{{
 public class TreeTag extends TableTag {
@@ -298,5 +298,6 @@ Another thing to understand is you can make your own tag, with your own TLD file
    </ec:row>
  </mycompany:customTable>
 }}}
+
 
 
