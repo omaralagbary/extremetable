@@ -15,6 +15,7 @@
  */
 package org.extremecomponents.table.cell;
 
+import org.apache.commons.lang.StringEscapeUtils;
 import org.apache.commons.lang.StringUtils;
 import org.extremecomponents.table.bean.Column;
 import org.extremecomponents.table.core.TableConstants;
@@ -26,6 +27,10 @@ import org.extremecomponents.util.HtmlBuilder;
  * A filter cell.
  * 
  * @author Jeff Johnston
+ * 
+ * 16 AUG 2007 - Todd Fredrich - Altered input() to add 'return false;' to 'if(event.keycode == 13)' 
+ *                               clause when a user-set onInvokeAction is present. This fixes an AJAX
+ *                               mis-behavior that submits the entire page on enter.
  */
 public class FilterCell implements Cell {
     public String getExportDisplay(TableModel model, Column column) {
@@ -64,6 +69,9 @@ public class FilterCell implements Cell {
 
     /**
      * If the filter is specified the default is to use a <input type=text> tag.
+     * 
+     * Modified 16 AUG 2007 - Todd Fredrich - added 'return false;' to 'if(event.keycode == 13)' 
+     *                                        clause when a user-set onInvokeAction is present. 
      */
     private String input(TableModel model, Column column) {
         HtmlBuilder html = new HtmlBuilder();
@@ -73,12 +81,17 @@ public class FilterCell implements Cell {
 
         String value = column.getValueAsString();
         if (StringUtils.isNotBlank(value)) {
-            html.value(value);
+            html.value(StringEscapeUtils.escapeHtml(value));
         }
 
         StringBuffer onkeypress = new StringBuffer();
         onkeypress.append("if (event.keyCode == 13) {");
-        onkeypress.append(new TableActions(model).getFilterAction());
+        TableActions ta = new TableActions(model);
+        onkeypress.append(ta.getFilterAction());
+        
+        if (ta.hasOnInvokeAction())
+        	onkeypress.append("return false;");
+        
         onkeypress.append("}");
         html.onkeypress(onkeypress.toString());
 

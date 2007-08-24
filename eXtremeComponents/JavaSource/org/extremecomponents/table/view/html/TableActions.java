@@ -23,6 +23,9 @@ import org.extremecomponents.table.limit.Sort;
 
 /**
  * @author Jeff Johnston
+ * 
+ * 16 AUG 2007 - Todd Fredrich - Refactored getOnInvokeAction() into getOnInvokeOrSubmitAction() and
+ *                               added methods getOnInokeAction() and hasOnInvokeAction().
  */
 public class TableActions {
     private TableModel model;
@@ -34,9 +37,28 @@ public class TableActions {
     protected TableModel getTableModel() {
         return model;
     }
+    
+    /*
+     * Added 16 AUG 2007 - Todd Fredrich
+     */
+    public boolean hasOnInvokeAction()
+    {
+    	return StringUtils.isNotBlank(getOnInvokeAction());
+    }
 
-    public String getOnInvokeAction() {
-        String onInvokeAction = model.getTableHandler().getTable().getOnInvokeAction();
+    /*
+     * Modified 16 AUG 2007 - Todd Fredrich - To simply return user-set onInvokeAction.
+     */
+    public String getOnInvokeAction()
+    {
+        return model.getTableHandler().getTable().getOnInvokeAction();
+    }
+
+    /*
+     * Added 16 AUG 2007 - Todd Fredrich - To duplicate previous functionality of getOnInvokeAction().
+     */
+    public String getOnInvokeOrSubmitAction() {
+        String onInvokeAction = getOnInvokeAction();
         if (StringUtils.isNotBlank(onInvokeAction)) {
             return onInvokeAction;
         }
@@ -100,7 +122,7 @@ public class TableActions {
         action.append(getClearedExportTableIdParameters());
 
         action.append(getFormParameter(TableConstants.PAGE, "" + page));
-        action.append(getOnInvokeAction());
+        action.append(getOnInvokeOrSubmitAction());
         
         return action.toString();
     }
@@ -112,7 +134,7 @@ public class TableActions {
 
         action.append(getFormParameter(TableConstants.FILTER + TableConstants.ACTION, TableConstants.FILTER_ACTION));
         action.append(getFormParameter(TableConstants.PAGE, "1"));
-        action.append(getOnInvokeAction());
+        action.append(getOnInvokeOrSubmitAction());
 
         return action.toString();
     }
@@ -124,7 +146,7 @@ public class TableActions {
 
         action.append(getFormParameter(TableConstants.FILTER + TableConstants.ACTION, TableConstants.CLEAR_ACTION));
         action.append(getFormParameter(TableConstants.PAGE, "1"));
-        action.append(getOnInvokeAction());
+        action.append(getOnInvokeOrSubmitAction());
 
         return action.toString();
     }
@@ -143,7 +165,7 @@ public class TableActions {
         // set sort on current column
         action.append(getFormParameter(TableConstants.SORT + column.getAlias(), sortOrder));
         action.append(getFormParameter(TableConstants.PAGE, "1"));
-        action.append(getOnInvokeAction());
+        action.append(getOnInvokeOrSubmitAction());
 
         return action.toString();
     }
@@ -155,7 +177,7 @@ public class TableActions {
 
         action.append(getRowsDisplayedFormParameter(TableConstants.CURRENT_ROWS_DISPLAYED));
         action.append(getFormParameter(TableConstants.PAGE, "1"));
-        action.append(getOnInvokeAction());
+        action.append(getOnInvokeOrSubmitAction());
         
         return action.toString();
     }
