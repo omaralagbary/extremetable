@@ -80,6 +80,9 @@
 				<include name="**/*.jsp"/>
 				<include name="**/*.css"/>
 			</fileset>
+			<fileset dir="${build.dir}/META-INF">
+			    <include name="extremecomponents.tld"/>
+			</fileset>
 		</copy>
 	</target>
 	
