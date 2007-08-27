@@ -24,7 +24,7 @@ import junit.framework.TestCase;
 /**
  * @author Jeff Johnston
  */
-public class AbstractRegistryTest extends TestCase {
+public abstract class AbstractRegistryTest extends TestCase {
     private AbstractRegistryInstance registry;
 
     protected void setUp() throws Exception {
