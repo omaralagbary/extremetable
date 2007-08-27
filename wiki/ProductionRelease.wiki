@@ -5,7 +5,7 @@ Everything has exceeded my expectations about what I thought the final version w
 === Release 1.0.3 ===
 This is a simple bug fix release addressing an issue when using the eXtremeTable filter feature in AJAX mode by setting the onInvokeAction. Previously, clicking the 'filter' button or pressing enter caused a page refresh.
 
-Also incorporated the 1.0.2 patch mentioned on the wiki.
+Also incorporated the 1.0.2 patch.
 
 ===  Html Builder classes are concrete now. ===
 All the view builder classes are concrete and need to be instantiated. This only effects developers that have created custom views or custom cells. This was a much needed change to make the view code as flexible as it needs to be. Having the builder classes be static worked Ok, but there would be no opportunities to do anything interesting in the future, and made creating custom views more difficult. However, the methods are all the same yet and just requires a builder class to be instantiated with an !HtmlBuilder.
@@ -273,5 +273,4 @@ Set the form method attribute with javascript when paging, filtering, and sortin
 === Bullet proof Limit feature === 
 
 The Limit is now forgiving and will only log a warning and then just display what it can if incorrect data is passed to the !LimitCallback. Also, if you need to debug the Limit just do a Limit.toString() to get the paging information. This same information is available as the table is being rendered.
-
 
