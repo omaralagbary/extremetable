@@ -4,10 +4,9 @@
 	<property file="build.properties" />
 	<property name="projectName" value="extremecomponents"/>
 	<property name="main.dir" value="./"/>
-	<property name="src.dir" value="${main.dir}/JavaSource"/>
+	<property name="src.dir" value="${main.dir}/src/java"/>
 	<property name="build.dir" value="${main.dir}/build"/>
 	<property name="lib.dir" value="${main.dir}/lib"/>
-	<property name="classes.dir" value="${main.dir}/bin"/>
 	<property name="dist.dir" value="${main.dir}/dist"/>
 	<property name="javadocs.dir" value="${main.dir}/docs/api"/>
 	
