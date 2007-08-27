@@ -3,12 +3,11 @@
 	<property environment="env" />
 	<property file="build.properties" />
 	<property name="projectName" value="extremecomponents"/>
-	<property name="main.dir" value="./"/>
-	<property name="src.dir" value="${main.dir}/src/java"/>
-	<property name="build.dir" value="${main.dir}/build"/>
-	<property name="lib.dir" value="${main.dir}/lib"/>
-	<property name="dist.dir" value="${main.dir}/dist"/>
-	<property name="javadocs.dir" value="${main.dir}/docs/api"/>
+	<property name="src.dir" value="${basedir}/src/java"/>
+	<property name="build.dir" value="${basedir}/build"/>
+	<property name="lib.dir" value="${basedir}/lib"/>
+	<property name="dist.dir" value="${basedir}/dist"/>
+	<property name="javadocs.dir" value="${basedir}/docs/api"/>
 	
 	<property name="doc.dir" value="docs"/>
 	<property name="doc.ref.dir" value="docs/reference"/>
@@ -62,7 +61,7 @@
 			<fileset dir="${src.dir}">
 			    <include name="**/*.properties"/>
 			</fileset>
-			<fileset dir="${src.dir}">
+			<fileset dir="${basedir}">
 				<include name="LICENSE-2.0.txt"/>
 				<include name="NOTICE.txt"/>
 			</fileset>
@@ -76,7 +75,7 @@
 	
 	<target name="dist" depends="jar">
 		<copy todir="${dist.dir}">
-			<fileset dir="${main.dir}/resources">
+			<fileset dir="${basedir}/resources">
 				<include name="**/*.js"/>
 				<include name="**/*.jsp"/>
 				<include name="**/*.css"/>
