@@ -72,8 +72,22 @@
             </manifest>
 		</jar>
 	</target>
-	
-	<target name="dist" depends="jar">
+
+	<target name="src-jar">
+		<jar jarfile="${dist.dir}/${projectName}-${projectVersion}-src.jar" basedir="${src.dir}">
+			<fileset dir="${basedir}">
+				<include name="LICENSE-2.0.txt"/>
+				<include name="NOTICE.txt"/>
+			</fileset>
+			<manifest>
+			    <attribute name="Built-By" value="${built.by}" />
+				<attribute name="Build-Machine" value="${user.name}@${env.HOSTNAME} (${os.name})"/>
+				<attribute name="Build-Version" value="${projectVersion}"/> 
+	        </manifest>
+		</jar>
+	</target>
+
+	<target name="dist" depends="jar,src-jar">
 		<copy todir="${dist.dir}">
 			<fileset dir="${basedir}/resources">
 				<include name="**/*.js"/>
