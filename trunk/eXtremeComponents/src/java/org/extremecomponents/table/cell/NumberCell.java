@@ -17,7 +17,6 @@ package org.extremecomponents.table.cell;
 
 import java.util.Locale;
 
-import org.apache.commons.lang.StringUtils;
 import org.extremecomponents.table.bean.Column;
 import org.extremecomponents.table.core.TableModel;
 import org.extremecomponents.util.ExtremeUtils;
@@ -27,15 +26,15 @@ import org.extremecomponents.util.ExtremeUtils;
  * format.
  * 
  * @author Jeff Johnston
+ * @author Todd Fredrich - 03 Jan 2008 changed to extend FormattedCell.
  */
-public class NumberCell extends AbstractCell {
-    protected String getCellValue(TableModel model, Column column) {
+public class NumberCell
+extends FormattedCell
+{
+	protected String formatColumnValue(TableModel model, Column column)
+	{
+        Locale locale = model.getLocale();
         String value = column.getPropertyValueAsString();
-        if (StringUtils.isNotBlank(value)) {
-            Locale locale = model.getLocale();
-            value = ExtremeUtils.formatNumber(column.getFormat(), value, locale);
-        }
-
-        return value;
-    }
+        return ExtremeUtils.formatNumber(column.getFormat(), value, locale);
+	}
 }
