@@ -17,7 +17,6 @@ package org.extremecomponents.table.cell;
 
 import java.util.Locale;
 
-import org.apache.commons.lang.StringUtils;
 import org.extremecomponents.table.bean.Column;
 import org.extremecomponents.table.core.TableModel;
 import org.extremecomponents.util.ExtremeUtils;
@@ -26,15 +25,14 @@ import org.extremecomponents.util.ExtremeUtils;
  * Visually represents a column that will be displayed with a Date format.
  * 
  * @author Jeff Johnston
+ * @author Todd Fredrich - 03 Jan 2008 changed to extend FormattedCell.
  */
-public class DateCell extends AbstractCell {
-    protected String getCellValue(TableModel model, Column column) {
-        String value = column.getPropertyValueAsString();
-        if (StringUtils.isNotBlank(value)) {
-            Locale locale = model.getLocale();
-            value = ExtremeUtils.formatDate(column.getParse(), column.getFormat(), column.getPropertyValue(), locale);
-        }
-
-        return value;
-    }
+public class DateCell
+extends FormattedCell
+{
+	protected String formatColumnValue(TableModel model, Column column)
+	{
+        Locale locale = model.getLocale();
+        return ExtremeUtils.formatDate(column.getParse(), column.getFormat(), column.getPropertyValue(), locale);
+	}
 }
