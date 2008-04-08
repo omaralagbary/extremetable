@@ -3,8 +3,6 @@
 Everything has exceeded my expectations about what I thought the final version would look like. The interfaces are very clear and the code is very clean. I am also now very happy with the view code as that got tweaked quite a bit and is now very easy to modify. In addition along the way the eXtremeTable became an API and I no longer even think of it as a tag library...tags are just one way to generate a table.
 
 === Release 1.0.4 ===
-Features not yet released, but are being checked in to the code base.
-
 This is a minor release, but there are modifications to the DateCell and NumberCell functionality.  The changes are basically to enable DateCell and NumberCell (which now extend FormattedCell) to support user-defined contents between the begin/end column tag elements.  Before, they ignored any content between the begin/end column tags.  This enables you to now sorting on dates and numbers, while formatting them differently or including them in a link in the table output.
 
 Also, debug line numbers are now in the distro as well as a source jar to enable debugging within your own projects.
