@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<project name="eXtremeComponents" default="dist" basedir=".">
+<project name="eXtremeComponents" default="release" basedir=".">
 	<property environment="env" />
 	<property file="build.properties" />
 	<property name="projectName" value="extremecomponents"/>
@@ -7,11 +7,20 @@
 	<property name="build.dir" value="${basedir}/build"/>
 	<property name="lib.dir" value="${basedir}/lib"/>
 	<property name="dist.dir" value="${basedir}/dist"/>
+	<property name="release.dir" value="${basedir}/release"/>
+
+	<property name="dist.images" value="${dist.dir}/images"/>
+	<property name="dist.lib.dir" value="${dist.dir}/lib"/>
+	<property name="dist.lib.min" value="${dist.lib.dir}/minimum"/>
+	<property name="dist.lib.pdf" value="${dist.lib.dir}/pdf"/>
+	<property name="dist.lib.xls" value="${dist.lib.dir}/xls"/>
 	<property name="javadocs.dir" value="${basedir}/docs/api"/>
 	
 	<property name="doc.dir" value="docs"/>
 	<property name="doc.ref.dir" value="docs/reference"/>
 	<property name="dist.ref.dir" value="docs/reference"/>
+	<property name="release.zip.file.with.dependencies" value="${release.dir}/eXtremeComponents-${projectVersion}-with-dependencies.zip"/>
+	<property name="release.zip.file" value="${release.dir}/eXtremeComponents-${projectVersion}.zip"/>
 	
 	<path id="classes">
 		<fileset dir="${lib.dir}">
@@ -22,11 +31,13 @@
 	<target name="clean">
 		<delete dir="${build.dir}"/>
 		<delete dir="${dist.dir}"/>
+		<delete dir="${release.dir}"/>
 	</target>
 
 	<target name="prepare">
 		<mkdir dir="${build.dir}"/>
 		<mkdir dir="${dist.dir}"/>
+		<mkdir dir="${release.dir}"/>
 	</target>
 	
 	<target name="compile" depends="clean,prepare">
@@ -98,7 +109,53 @@
 			    <include name="extremecomponents.tld"/>
 			</fileset>
 		</copy>
+		<copy todir="${dist.images}">
+			<fileset dir="${basedir}/resources/images/table">
+				<include name="**/*"/>
+			</fileset>
+		</copy>
+		<copy todir="${dist.lib.min}">
+			<fileset dir="${basedir}/lib">
+				<include name="commons*.jar"/>
+				<include name="standard*.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="${dist.lib.xls}">
+			<fileset dir="${basedir}/lib">
+				<include name="poi*.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="${dist.lib.pdf}">
+			<fileset dir="${basedir}/lib">
+				<include name="avalon*.jar"/>
+				<include name="batik*.jar"/>
+				<include name="fop*.jar"/>
+				<include name="xalan*.jar"/>
+				<include name="xerces*.jar"/>
+				<include name="xml-apis*.jar"/>
+			</fileset>
+		</copy>
 	</target>
+	
+    <target name="release" depends="dist" description="Create release zip and tgz files">
+        <zip destfile="${release.zip.file.with.dependencies}">
+        	<zipfileset dir="${dist.dir}" prefix="eXtremeComponents-${projectVersion}">
+    			<include name="**/*"/>
+    		</zipfileset>
+        </zip>
+        <zip destfile="${release.zip.file}">
+        	<zipfileset dir="${dist.dir}" prefix="eXtremeComponents-${projectVersion}">
+    			<include name="**/*"/>
+        		<exclude name="**/lib/**"/>
+    		</zipfileset>
+        </zip>
+    	<tar destfile="${release.dir}/eXtremeComponents-${projectVersion}-with-dependencies.tgz" compression="gzip">
+        	<zipfileset src="${release.zip.file.with.dependencies}"/>
+    	</tar>
+    	<tar destfile="${release.dir}/eXtremeComponents-${projectVersion}.tgz" compression="gzip">
+    		<zipfileset src="${release.zip.file}"/>
+        </tar>
+    </target>
 	
 	<target name="javadoc" description="Generate framework Javadocs.">
 		<mkdir dir="${javadocs.dir}"/>
@@ -135,4 +192,3 @@
 
 	<target name="doc.all" depends="doc.clean,javadoc" description="Generate and copy reference documentation"/>	
 </project>
-
